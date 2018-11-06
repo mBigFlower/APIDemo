@@ -1,17 +1,16 @@
 ## WebAPI
 
-在线API
+API Demo
 
 ## Web
 
-- JQuery, AJAX : base
-- React : is simular to WPF's Banding
-- Bootstrap : 
+- JQuery, AJAX : Http
+- Bootstrap : Theme
 
-There are many useful webs for me:
+There are many excellent webs for me:
 
 - [w3cSchool](https://www.w3cschool.cn/)
-- [Bootstrap](https://getbootstrap.com/) or Bottstrap中文网(http://www.bootcss.com/)
+- [Bootstrap](https://getbootstrap.com/) or [Bottstrap中文网](http://www.bootcss.com/)
 - [JS Bin](http://js.jirengu.com)
 
 ## Server
@@ -20,3 +19,7 @@ There are many useful webs for me:
 - MongoDB
 - Mongoose
 
+## Windows Client -- WPF
+
+- JumpKick.HttpLib.dll
+- [MaterialDesignInXamlToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
