@@ -22,4 +22,6 @@ There are many excellent webs for me:
 ## Windows Client -- WPF
 
 - JumpKick.HttpLib.dll
+- MvvmLight
+- Newtonsoft.Json
 - [MaterialDesignInXamlToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
