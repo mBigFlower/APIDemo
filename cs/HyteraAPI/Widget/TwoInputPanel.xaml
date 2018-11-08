@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="HyteraAPI.Widget.TwoInputPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HyteraAPI.Widget"
+             mc:Ignorable="d"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ListBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.RadioButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+
+
+    <Grid Name="AddResultItemLayout" VerticalAlignment="Top"
+        Background="White" Visibility="{Binding AddResultItemPanelVisibility}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="0" Grid.ColumnSpan="2"
+                 Text="{Binding KeyInputStr, UpdateSourceTrigger=PropertyChanged}"
+	        materialDesign:HintAssist.Hint="Key" Margin="8,0,8,0"
+	        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+        <TextBox  Grid.Row="1" Grid.ColumnSpan="2" Margin="8"
+	        materialDesign:HintAssist.Hint="Value"
+                 Text="{Binding ValueInputStr, UpdateSourceTrigger=PropertyChanged}"
+	        Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+        <Button Name="SureBt" Content="Sure"  Grid.Row="2" Margin="3,3,3,10" Click="SureBt_Click"/>
+        <Button Name="CancelBt" Content="Cancel" Grid.Row="2" Grid.Column="1" Margin="3,3,3,10"
+	        Style="{StaticResource MaterialDesignFlatButton}" Click="CancelBt_Click"/>
+    </Grid>
+</UserControl>
