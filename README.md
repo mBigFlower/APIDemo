@@ -1,6 +1,10 @@
 ## WebAPI
 
-API Demo
+API Demo. There are three main part:
+
+- [Web](https://github.com/mBigFlower/APIDemo/tree/master/bs)
+- [Server](https://github.com/mBigFlower/APIDemo/tree/master/server)
+- [Windows Client](https://github.com/mBigFlower/APIDemo/tree/master/cs)
 
 ## Web
 
@@ -16,6 +20,7 @@ There are many excellent webs for me:
 ## Server
 
 - NodeJs
+- Express
 - MongoDB
 - Mongoose
 
