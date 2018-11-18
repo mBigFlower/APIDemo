@@ -3,6 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var bodyParser = require('body-parser');
 var mongooseUtil = require('./mongooseUtil.js');
+var email = require('./mailManager.js');
  
 var app = express();
 // 创建 application/x-www-form-urlencoded 编码解析
@@ -54,6 +55,19 @@ app.get('/apis', function (req, res) {
 		res.send(apis);
 	})
 })
+
+app.get('/add', urlencodedParser, function (req, res) {
+   // 输出 JSON 格式
+   // var response = {
+       // "user name":req.body.first_name,
+       // "password":req.body.last_name
+   // };
+   // console.log(response);
+   email.SendEmail();
+   res.end("Happy");
+})
+
+
 
 app.post('/login_post', urlencodedParser, function (req, res) {
    // 输出 JSON 格式

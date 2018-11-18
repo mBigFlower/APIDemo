@@ -15,6 +15,7 @@
     <link href="/libs/css//bootstrap.min.css" rel="stylesheet">
 
     <link href="/css/cover.css" rel="stylesheet">
+    <link href="/libs/css/sweetalert2.css" rel="stylesheet">
     
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="https://v3.bootcss.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -22,16 +23,27 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="https://v3.bootcss.com/assets/js/ie-emulation-modes-warning.js"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	
-	
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/libs/js/sweetalert2.js"></script>
+	
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("h5").click(function(){
-				swal("Sweet!", "I like customizing!");
+			$("button").click(function(){
+				ShowDialog();
 			});
 		});
+		
+		async function ShowDialog(){
+			const {value: text} = await swal({
+			  input: 'textarea',
+			  inputPlaceholder: 'Input cmd_name here...',
+			  showCancelButton: true
+			})
+
+			if (text) {
+			  swal(text)
+			}
+		}
 	</script>
   </head>
 
@@ -60,9 +72,7 @@
             <h1 class="cover-heading">If You Cannot Search You What</h1>
 			<h5>Please input the cmd_name, and I'll perfect the database twice a week.</h5>
 			<br>
-			<form class="bs-example bs-example-form" role="form" action="/addRequest?" method="get">
-              <input type="text" class="form-control" placeholder="cmd_name ..." name="data">
-            </form>
+			<button class="btn btn-primary">Feedback</button>
           </div>
 
           <div class="mastfoot">
