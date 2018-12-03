@@ -8,7 +8,7 @@ API Demo. There are three main part:
 
 ## TODO
 
-- [ ] 应用解图，没图说个江波
+- [ ] 应用截图，没图说个江波
 - [ ] Web 端的 API 修改
 
 ## Web
