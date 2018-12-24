@@ -39,7 +39,7 @@ app.get('/detail', function (req, res) {
    var filePath = path.join(__dirname, '../bs/html/detail.html');
    res.sendFile(filePath);
 })
-app.get('/apis', function (req, res) {
+app.get('/api/all', function (req, res) {
    var keyWord = req.query.key;
    console.log('search keyWord:'+keyWord);
    if(!keyWord){
@@ -48,26 +48,46 @@ app.get('/apis', function (req, res) {
    }
    mongooseUtil.findByCmdNameOrDesc(keyWord, function (err, apis) {
 	  if (err){
-		console.log(err);
-		res.send(err);
+  		console.log(err);
+  		res.send(err);
 	  }
 	  else 
-		res.send(apis);
-	})
+		  res.send(apis);
+	 })
 })
 
-app.get('/add', urlencodedParser, function (req, res) {
-   // 输出 JSON 格式
-   // var response = {
-       // "user name":req.body.first_name,
-       // "password":req.body.last_name
-   // };
-   // console.log(response);
-   email.SendEmail();
-   res.end("Happy");
+app.post('/add', urlencodedParser, function (req, res) {
+  var api = req.body.apiDetail,
+  mongooseUtil.addApi(api, function (err, message) {
+    if (err){
+      console.log(err);
+      res.send(err);
+    }else {
+      var response = {
+       "result":"0",
+       "message":"save success."
+      };
+      res.send(response);
+    }
+   })
 })
 
+app.post('/api/revise', urlencodedParser, function (req, res) {
+   var api = req.body.apiDetail,
 
+   mongooseUtil.reviseApi(api, function (err, message) {
+    if (err){
+      console.log(err);
+      res.send(err);
+    }else {
+      var response = {
+       "result":"0",
+       "message":"revise success."
+      };
+      res.send(response);
+    }
+   })
+})
 
 app.post('/login_post', urlencodedParser, function (req, res) {
    // 输出 JSON 格式
