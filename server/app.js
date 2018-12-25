@@ -65,7 +65,8 @@ app.get('/api/all', function (req, res) {
 })
 
 app.post('/add', urlencodedParser, function (req, res) {
-  var api = req.body.apiDetail,
+  var api = req.body.apiDetail;
+  
   mongooseUtil.addApi(api, function (err, message) {
     if (err){
       console.log(err);
@@ -81,7 +82,7 @@ app.post('/add', urlencodedParser, function (req, res) {
 })
 
 app.post('/api/revise', urlencodedParser, function (req, res) {
-   var api = req.body.apiDetail,
+   var api = req.body.apiDetail;
 
    mongooseUtil.reviseApi(api, function (err, message) {
     if (err){

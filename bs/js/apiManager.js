@@ -1,6 +1,5 @@
 $(document).ready(function(){
-	// GetApis();
-	MockData();
+	GetApis();
 });
 
 // 所有的APi数据
@@ -9,7 +8,7 @@ var Apis;
 function GetApis(){
 	// 浏览器地址为了好看，使用detail。 但该页中的ajax使用apis，便于理解。 好吧其实是路由的时候便于区分
 	var webUrl = window.location.href;
-	var apiUrl = webUrl.replace('detail', 'apis'); 
+	var apiUrl = webUrl.replace('detail', 'api/all'); 
 	$.get(apiUrl, function(result){
 		Apis = result ; 
 		if(!Apis || Apis.length == 0){
@@ -47,10 +46,10 @@ function InitItemsParam(oneDetail){
 		var lineHtml = "";
 		{
 			lineHtml = lineHtml + "<tr>";
-			lineHtml = lineHtml + "<td>"+items[i].key+"</td>";
-			lineHtml = lineHtml + "<td>"+items[i].content+"</td>";
-			lineHtml = lineHtml + "<td>"+items[i].isNecessary+"</td>";
-			lineHtml = lineHtml + "<td>"+items[i].introduce+"</td>";
+			lineHtml = lineHtml + "<td><a>"+items[i].key+"</a></td>";
+			lineHtml = lineHtml + "<td><a>"+items[i].content+"</a></td>";
+			lineHtml = lineHtml + "<td><a>"+items[i].isNecessary+"</a></td>";
+			lineHtml = lineHtml + "<td><a>"+items[i].introduce+"</a></td>";
 			lineHtml = lineHtml + "</tr>";
 		}
 		result = result + lineHtml;
