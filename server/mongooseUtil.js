@@ -156,5 +156,35 @@ function findByCmdNameOrDesc(keyWord, response){
 	});
 }
 
+function reviseApi(revisedApi, response){
+	Api.findById(revisedApi._id, function (findErr, api) {
+	    // 把find到的api，修改后再保存
+	    // 修改
+	    if(findErr){
+	  		response(findErr, "Find Error:"+revisedApi._id);
+	    	return;
+	    }
+	    // 保存
+		api.save(function(saveErr, doc){
+		    if(saveErr){
+		        console.log("error :" + saveErr);
+		  		response(saveErr, "Save Error:"+revisedApi._id);
+		    } else {
+		  		response(saveErr, "Success");
+		    }
+		});
+	});
+}
+
+function addApi(newApi, response){
+	var dataModel = new Api(newApi);
+
+	dataModel.save(function(err,doc){
+  		response(err, doc);
+	});
+}
+
 exports.findByCmdNameOrDesc = findByCmdNameOrDesc;
+exports.addApi = addApi;
+exports.reviseApi = reviseApi;
 

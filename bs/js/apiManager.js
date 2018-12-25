@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	GetApis();
+	// GetApis();
+	MockData();
 });
 
 // 所有的APi数据
@@ -111,8 +112,6 @@ function findItemById(id){
 //////////////////////////////////////////////////////
 // Other End
 //////////////////////////////////////////////////////
-
-
 
 
 
