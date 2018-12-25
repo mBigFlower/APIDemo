@@ -23,9 +23,17 @@ app.get('/home', function (req, res) {
    var filePath = path.join(__dirname, '../bs/html/home.html');
    res.sendFile(filePath);
 })
-app.get('/login', function (req, res) {
-   var filePath = path.join(__dirname, '../bs/html/login.html');
-   res.sendFile(filePath);
+app.get('/login', urlencodedParser, function (req, res) {
+	// 输出 JSON 格式
+   var response = {
+       "result":0,
+       "message":"login success"
+   };
+   console.log(response);
+   res.setHeader("Access-Control-Allow-Origin", "*");
+   res.end(JSON.stringify(response));
+   //var filePath = path.join(__dirname, '../bs/html/login.html');
+   //res.sendFile(filePath);
 })
 app.get('/about', function (req, res) {
    var filePath = path.join(__dirname, '../bs/html/about.html');
@@ -63,7 +71,7 @@ app.get('/add', urlencodedParser, function (req, res) {
        // "password":req.body.last_name
    // };
    // console.log(response);
-   email.SendEmail();
+   email.SendEmail('您有新的饿了么订单，请注意查收', '内容应该是post过来的请求内容');
    res.end("Happy");
 })
 
@@ -78,6 +86,10 @@ app.post('/login_post', urlencodedParser, function (req, res) {
    console.log(response);
    res.end(JSON.stringify(response));
 })
+
+
+
+
 
 // listen 的时候,加上 0.0.0.0 这样 remoteAddress 收到的是 IPv4
 var server = app.listen(8081, '0.0.0.0', function () {

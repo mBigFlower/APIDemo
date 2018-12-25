@@ -16,6 +16,7 @@ There are many excellent webs for me:
 - [w3cSchool](https://www.w3cschool.cn/)
 - [Bootstrap](https://getbootstrap.com/) or [Bottstrap中文网](http://www.bootcss.com/)
 - [JS Bin](http://js.jirengu.com)
+- JS组件系列——BootstrapTable 行内编辑解决方案：x-editable
 
 ## Server
 

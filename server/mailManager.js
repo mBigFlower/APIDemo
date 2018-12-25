@@ -10,14 +10,12 @@ var mailTransport = nodemailer.createTransport({
     },
 });
 
-function SendEmail(){
+function SendEmail(title, content){
 	var options = {
         from        : 'heilongjiang333@126.com',
-        to          : '252565596@qq.com',
-        // cc         : ''  //抄送
-        // bcc      : ''    //密送
-        subject        : '一封来自126网易333的邮件',
-        text          : '你好我是text',
+        to          : ['shenghua.chen@hytera.com', "252565596@qq.com"],
+        subject     : title,
+        text        : content,
     };
     
 	console.log('即将发送邮件');
@@ -31,6 +29,7 @@ function SendEmail(){
     });
 }
 
-exports.SendEmail = SendEmail;
 
-SendEmail()
+//SendEmail("Js", "SendEmail");
+
+exports.SendEmail = SendEmail;
