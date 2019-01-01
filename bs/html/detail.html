@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,99 +9,92 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-
     <title>Hytera API</title>
-	
     <!-- Bootstrap core CSS -->
     <link href="/libs/css//bootstrap.min.css" rel="stylesheet">
-
     <!-- <link href="/css/cover.css" rel="stylesheet"> -->
-	
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/detail.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="https://v3.bootcss.com/assets/js/ie-emulation-modes-warning.js"></script>
-	
-	
-	<script type="text/javascript" src="/libs/jquery/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="/js/apiManager.js"></script>
-  </head>
+    <script type="text/javascript" src="/libs/jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/js/apiManager.js"></script>
 
-  <body>
 
+</head>
+
+<body>
     <nav class="navbar mheader navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand header_home" href="../">Hytera API</a>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand header_home" href="../">Hytera API</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav masthead-nav navbar-right">
+                    <li><a class="header-text" href="../about">About</a></li>
+                    <li><a class="header-text" href="../help">Help</a></li>
+                </ul>
+                <form class="navbar-form navbar-right" href="/detail?">
+                    <input type="text" class="form-control" placeholder="Search..." name="key">
+                </form>
+            </div>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav masthead-nav navbar-right">
-            <li><a class="header-text" href="../about">About</a></li>
-            <li><a class="header-text" href="../help">Help</a></li>
-          </ul>
-          <form class="navbar-form navbar-right" href="/detail?">
-            <input type="text" class="form-control" placeholder="Search..." name="key">
-          </form>
-        </div>
-      </div>
     </nav>
-
     <div class="container-fluid">
-      <div class="row">
+        <!-- 左侧列表 -->
         <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar" id="ApiNames">
-            <!-- <li class="active"><a href="#">region_list_request_ack <span class="sr-only">(current)</span></a></li> -->
-          </ul>
-
-        </div>
+            <ul class="nav nav-sidebar" id="ApiNames">
+            </ul>
+        </div> 
+        <!-- 右侧主体 -->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		  <div class="page-header">
-			<div >
-				<h1 id="title">ApiName</h1>
-				<button>(Edit)</button>
-			</div>
-			<h3 id="description">description</h3>
-		  </div>
-			
-			
-          <h2 class="sub-header">Params</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-				  <th>Key</th>
-				  <th>Content</th>
-				  <th>IsNecessary</th>		
-				  <th>Introduce</th>
-                </tr>
-              </thead>
-              <tbody id="detailTable">
-                
-              </tbody>
-            </table>
-          </div>
+            <div class="page-header">
+                <div>
+                  <h1 class="hor" id="title">ApiName></h1>
+                  <button id="enableEdit">enable / disable</button>
+                </div>
+                <h3 id="description">description</h3>
+            </div>
+            <h2 class="sub-header">Params</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Content</th>
+                            <th>IsNecessary</th>
+                            <th>Introduce</th>
+                        </tr>
+                    </thead>
+                    <tbody id="detailTable">
+                    </tbody>
+                </table>
+            </div>
         </div>
-      </div>
     </div>
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script>
+    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="https://v3.bootcss.com/assets/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="https://v3.bootcss.com/assets/js/ie10-viewport-bug-workaround.js"></script>
-  
-
+    <!-- 编辑相关 -->
+    <script type="text/javascript" src="/libs/js/bootstrap-editable.js"></script>
+    <link href="/libs/css//bootstrap-editable.css" rel="stylesheet">
 </body>
+
 </html>
