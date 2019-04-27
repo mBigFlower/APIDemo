@@ -11,6 +11,12 @@ API Demo. There are three main part:
 - [ ] 应用截图，没图说个江波
 - [ ] Web 端的 API 修改
 
+## ScreenShots
+
+![MainPage](https://github.com/mBigFlower/APIDemo/blob/master/images/MainPage.gif)
+![SearchDetail](https://github.com/mBigFlower/APIDemo/blob/master/images/SearchDetail.gif)
+![feedback](https://github.com/mBigFlower/APIDemo/blob/master/images/feedback.gif)
+
 ## Web
 
 - JQuery, AJAX : Http
