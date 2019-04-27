@@ -47,24 +47,34 @@ app.get('/detail', function (req, res) {
    var filePath = path.join(__dirname, '../bs/html/detail.html');
    res.sendFile(filePath);
 })
-app.get('/api/all', function (req, res) {
+app.get('/api/one', function (req, res) {
    var keyWord = req.query.key;
    console.log('search keyWord:'+keyWord);
    if(!keyWord){
-	  res.send('No Data');
-	  return;
+    res.send('No Data');
+    return;
    }
    mongooseUtil.findByCmdNameOrDesc(keyWord, function (err, apis) {
-	  if (err){
-  		console.log(err);
-  		res.send(err);
-	  }
-	  else 
-		  res.send(apis);
-	 })
+    if (err){
+      console.log(err);
+      res.send(err);
+    }
+    else 
+      res.send(apis);
+   })
+})
+app.get('/api/all', function (req, res) {
+   mongooseUtil.findAllApis(function (err, apis) {
+    if (err){
+      console.log(err);
+      res.send(err);
+    }
+    else 
+      res.send(apis);
+   })
 })
 
-app.post('/add', urlencodedParser, function (req, res) {
+app.post('/api/add', urlencodedParser, function (req, res) {
   var api = req.body.apiDetail;
   
   mongooseUtil.addApi(api, function (err, message) {

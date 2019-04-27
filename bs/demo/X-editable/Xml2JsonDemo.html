@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--  -->
+  <script src="./X-editable Demo_files/jquery-1.9.1.min.js"></script>   
+  <link href="./X-editable Demo_files/bootstrap.css" rel="stylesheet">
+  <script src="./X-editable Demo_files/bootstrap.js"></script>
+
+  <script type="text/javascript" src="http://www.jsons.cn/Down/jquery.json2xml.js"></script>
+  <script type="text/javascript" src="http://www.jsons.cn/Down/jquery.xml2json.js"></script>
+
+
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+    a{
+      font-size:24px;
+    }
+    h1{
+      display: inline;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+      InitClick();
+    });
+  
+    function InitClick(){
+      $("#commit").click(function(){
+        var xmlText = "<MyRoot><test>Success</test><test2><item>val1</item><item>val2</item></test2></MyRoot>";
+        Change(xmlText); 
+      });
+    }
+  
+    function Change(xmlstr){
+      var json_obj = $.xml2json(xmlstr);
+    }
+  </script>
+</head>
+<body>
+  <div>
+    <h1>表格提交</h1>
+    <button id="commit">提交</button>
+  </div>
+  <br><br>
+  <table id="myTable" class="table table-striped">
+    <thead>
+      <tr>
+        <th>序号</th>
+        <th>名字</th>
+        <th>性别</th>
+        <th>年龄</th>
+      </tr>
+    </thead>
+    <tbody id="myTableBody">
+      <tr>
+        <td>1</td> 
+        <td>张三</td> 
+        <td>男</td> 
+        <td>12</td>  
+      </tr>
+      <tr>
+        <td>2</td> 
+        <td>李四</td> 
+        <td>男</td> 
+        <td>16</td>  
+      </tr>
+      <tr>
+        <td>3</td> 
+        <td>王五</td> 
+        <td>男</td> 
+        <td>21</td>  
+      </tr>
+    </tbody>
+    
+  </table>
+</body>
+</html>

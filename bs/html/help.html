@@ -44,6 +44,13 @@
 			  swal(text)
 			}
 		}
+
+    function Xml2Json(){
+      var x2js = new X2JS();
+      var xmlText = "<MyRoot><test>Success</test><test2><item>val1</item><item>val2</item></test2></MyRoot>";
+      var jsonObj = x2js.xml_str2json( xmlText );
+    }
+    Xml2Json();
 	</script>
   </head>
 

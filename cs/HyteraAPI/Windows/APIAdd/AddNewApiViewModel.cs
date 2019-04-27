@@ -157,6 +157,7 @@ namespace HyteraAPI.APIAdd
         private void DataOKState()
         {
             Message = CmdName;
+            IsTransferBtnEnable = true;
             InitApiDetailItems();
         }
 

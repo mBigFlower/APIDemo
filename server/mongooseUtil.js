@@ -155,6 +155,11 @@ function findByCmdNameOrDesc(keyWord, response){
 	  response(err, apis);
 	});
 }
+function findAllApis(response){
+	Api.find({}, function (err, apis) {
+	  response(err, apis);
+	});
+}
 
 function reviseApi(revisedApi, response){
 	Api.findById(revisedApi._id, function (findErr, api) {
@@ -185,6 +190,7 @@ function addApi(newApi, response){
 }
 
 exports.findByCmdNameOrDesc = findByCmdNameOrDesc;
+exports.findAllApis = findAllApis;
 exports.addApi = addApi;
 exports.reviseApi = reviseApi;
 

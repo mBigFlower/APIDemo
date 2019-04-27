@@ -14,11 +14,11 @@ namespace HyteraAPI.Base
 
 
         #region http url
-        public const string BASE_IP = "http://172.16.1.100";
-        public const string BASE_PORT = ":3000";
-        public const string HTTP_GET_ALL = BASE_IP + BASE_PORT + "/all";
-        public const string HTTP_POST_DETAIL_REVISE = BASE_IP + BASE_PORT + "/revise";
-        public const string HTTP_POST_DETAIL_ADD = BASE_IP + BASE_PORT + "/add";
+        public const string BASE_IP = "http://127.0.0.1";
+        public const string BASE_PORT = ":8081";
+        public const string HTTP_GET_ALL = BASE_IP + BASE_PORT + "/api/all";
+        public const string HTTP_POST_DETAIL_REVISE = BASE_IP + BASE_PORT + "/api/revise";
+        public const string HTTP_POST_DETAIL_ADD = BASE_IP + BASE_PORT + "/api/add";
         #endregion
 
 
