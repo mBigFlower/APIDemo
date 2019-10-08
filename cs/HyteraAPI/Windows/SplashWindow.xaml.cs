@@ -1,4 +1,5 @@
-﻿using HyteraAPI.Windows;
+﻿using HyteraAPI.Base;
+using HyteraAPI.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,48 +29,32 @@ namespace HyteraAPI
         {
             InitializeComponent();
 
-            //Init();
-            ShowMainWindow();
+            Init();
+            //ShowMainWindow();
         }
 
         private void Init()
         {
-            // 启动中，演示2s
-            if (HasLoginToken())
-            {
-                ShowMainWindow();
-            }
-            else
-            {
-                ShowLoginWidget();
-            }
+            
         }
 
-        private bool HasLoginToken()
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
-            bool hasLoginToken = false;
-            if(PASSWORD == PassWordTb.Text.Trim())
+            string serverIp = ServerIpTb.Text.Trim();
+            if (!string.IsNullOrEmpty(serverIp))
             {
-                hasLoginToken = true;
+                SaveServerIp(serverIp);
+                ShowMainWindow();
             }
-            return hasLoginToken;
-        }
-        private void ShowLoginWidget()
-        {
-            // 将登录的控件，显示出来
         }
         private void ShowMainWindow()
         {
             new MainWindow().Show();
             this.Close();
         }
-
-        private void Login_Click(object sender, RoutedEventArgs e)
+        private void SaveServerIp(string serverIp)
         {
-            if (HasLoginToken())
-            {
-                ShowMainWindow();
-            }
+            Consts.InitUrls(serverIp);
         }
     }
 }

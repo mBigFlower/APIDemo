@@ -14,11 +14,11 @@ namespace HyteraAPI.Base
 
 
         #region http url
-        public const string BASE_IP = "http://127.0.0.1";
-        public const string BASE_PORT = ":8081";
-        public const string HTTP_GET_ALL = BASE_IP + BASE_PORT + "/api/all";
-        public const string HTTP_POST_DETAIL_REVISE = BASE_IP + BASE_PORT + "/api/revise";
-        public const string HTTP_POST_DETAIL_ADD = BASE_IP + BASE_PORT + "/api/add";
+        public static string BASE_IP = "http://127.0.0.1";
+        public static string BASE_PORT = ":8081";
+        public static string HTTP_GET_ALL = BASE_IP + BASE_PORT + "/api/all";
+        public static string HTTP_POST_DETAIL_REVISE = BASE_IP + BASE_PORT + "/api/revise";
+        public static string HTTP_POST_DETAIL_ADD = BASE_IP + BASE_PORT + "/api/add";
         #endregion
 
 
@@ -26,6 +26,14 @@ namespace HyteraAPI.Base
             get{
                 return System.Guid.NewGuid().ToString();
             }
+        }
+
+        public static void InitUrls(string serverIp)
+        {
+            BASE_IP = "http://"+serverIp;
+            HTTP_GET_ALL = BASE_IP + BASE_PORT + "/api/all";
+            HTTP_POST_DETAIL_REVISE = BASE_IP + BASE_PORT + "/api/revise";
+            HTTP_POST_DETAIL_ADD = BASE_IP + BASE_PORT + "/api/add";
         }
     }
 }

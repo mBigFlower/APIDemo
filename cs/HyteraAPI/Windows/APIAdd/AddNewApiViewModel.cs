@@ -171,16 +171,16 @@ namespace HyteraAPI.APIAdd
         {
             foreach (var item in ToAddItems)
             {
-                if(item.Key == Consts.API_CMD_NAME) {
-                    addDetail.Name = item.Content;
-                    return item.Content;
+                if(item.key == Consts.API_CMD_NAME) {
+                    addDetail.name = item.content;
+                    return item.content;
                 }
             }
             return null;
         }
         private void InitApiDetailItems()
         {
-            addDetail.Items = ToAddItems;
+            addDetail.items = ToAddItems;
         }
         #region public
         public void TransferData()

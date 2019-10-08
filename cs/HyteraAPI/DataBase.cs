@@ -45,7 +45,7 @@ namespace HyteraAPI
         {
             if (mApis == null || mApis.Count == 0)
                 return null;
-            return mApis.Find((detail) => detail.Name == cmdName);
+            return mApis.Find((detail) => detail.name == cmdName);
         }
         #endregion
     }

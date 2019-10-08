@@ -10,123 +10,123 @@ namespace HyteraAPI.APIDetails
 {
     public class ApiDetail: BaseModel
     {
-        string name;
-        string id;
-        string guid;
-        string description;
-        ObservableCollection<string> results = new ObservableCollection<string>();
-        ObservableCollection<TreeNode> items = new ObservableCollection<TreeNode>();
+        string _name;
+        string _id;
+        string _guid;
+        string _description;
+        ObservableCollection<string> _results = new ObservableCollection<string>();
+        ObservableCollection<TreeNode> _items = new ObservableCollection<TreeNode>();
 
         public ApiDetail()
         {
-            guid = Consts.GUID;
+            _guid = Consts.GUID;
         }
-        public ApiDetail(string name, string id, string guid, string description)
+        public ApiDetail(string _name, string _id, string _guid, string _description)
         {
-            Name = name;
-            Id = id;
-            Guid = guid;
-            Description = description;
+            name = _name;
+            id = _id;
+            guid = _guid;
+            description = _description;
         }
 
 
-        public ObservableCollection<TreeNode> Items
+        public ObservableCollection<TreeNode> items
         {
             get
             {
-                return items;
+                return _items;
             }
 
             set
             {
-                items = value;
-                OnPropertyChanged("Items"); // list里用这个嘛？
+                _items = value;
+                OnPropertyChanged("items"); // list里用这个嘛？
             }
         }
 
-        public string Name
+        public string name
         {
             get
             {
-                return name;
+                return _name;
             }
 
             set
             {
-                name = value;
-                OnPropertyChanged("Name");
+                _name = value;
+                OnPropertyChanged("name");
             }
         }
 
-        public string Id
+        public string id
         {
             get
             {
-                return id;
+                return _id;
             }
 
             set
             {
-                id = value;
-                OnPropertyChanged("Id");
+                _id = value;
+                OnPropertyChanged("id");
             }
         }
 
-        public string Guid
+        public string guid
         {
             get
             {
-                return guid;
+                return _guid;
             }
 
             set
             {
-                guid = value;
-                OnPropertyChanged("Guid");
+                _guid = value;
+                OnPropertyChanged("guid");
             }
         }
 
-        public string Description
+        public string description
         {
             get
             {
-                return description;
+                return _description;
             }
 
             set
             {
                 if (string.IsNullOrEmpty(value))
                     return;
-                description = value;
-                OnPropertyChanged("Description");
+                _description = value;
+                OnPropertyChanged("description");
             }
         }
 
-        public ObservableCollection<string> Results
+        public ObservableCollection<string> results
         {
             get
             {
-                return results;
+                return _results;
             }
 
             set
             {
-                results = value;
-                OnPropertyChanged("Results");
+                _results = value;
+                OnPropertyChanged("results");
             }
         }
 
 
         public ApiDetail Clone()
         {
-            ApiDetail newDetail = new ApiDetail(Name, Id, Guid, Description);
-            foreach (var item in this.Items)
+            ApiDetail newDetail = new ApiDetail(name, id, guid, description);
+            foreach (var item in this.items)
             {
-                newDetail.Items.Add(item.Clone());
+                newDetail.items.Add(item.Clone());
             }
-            foreach (var resultItem in Results)
+            foreach (var resultItem in results)
             {
-                newDetail.Results.Add(resultItem);
+                newDetail.results.Add(resultItem);
             }
             return newDetail;
         }

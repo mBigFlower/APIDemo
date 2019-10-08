@@ -62,9 +62,9 @@
                     Margin="24,24,24,0" Orientation="Horizontal">
             <Border Background="DarkMagenta" Width="24"/>
 
-            <TextBlock Margin="24" FontSize="36" Text="{Binding Detail.Name}"/>
+            <TextBlock Margin="24" FontSize="36" Text="{Binding Detail.name}"/>
 
-            <TextBox MinWidth="20" Text="{Binding Detail.Description}"
+            <TextBox MinWidth="20" Text="{Binding Detail.description}"
                      materialDesign:HintAssist.Hint="Description"
                      VerticalAlignment="Center"/>
         </StackPanel>
@@ -87,7 +87,7 @@
                 </DockPanel>
             </GroupBox.Header>
             <Grid>
-                <ListBox ItemsSource="{Binding Detail.Results}"
+                <ListBox ItemsSource="{Binding Detail.results}"
                          SelectedIndex="{Binding ResultItemSelectedIndex}"
                          ItemTemplate="{StaticResource ResultItemTemplate}">
                 </ListBox>
@@ -115,7 +115,7 @@
             <DataGrid
                 Name="DetailsGrid" CanUserSortColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
                 materialDesign:DataGridAssist.CellPadding="18 8 18 8" materialDesign:DataGridAssist.ColumnHeaderPadding="18 4 36 8"
-                ItemsSource="{Binding Detail.Items}">
+                ItemsSource="{Binding Detail.items}">
                 <DataGrid.Columns>
                     <!--<DataGridTextColumn Header="Key">
                         <DataGridTextColumn.Binding>

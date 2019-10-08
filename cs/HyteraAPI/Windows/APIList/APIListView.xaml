@@ -62,7 +62,7 @@
                  ItemsSource="{Binding ShowItems}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Padding="6" Text="{Binding Name}"/>
+                    <TextBlock Padding="6" Text="{Binding name}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

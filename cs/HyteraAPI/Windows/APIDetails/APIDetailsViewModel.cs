@@ -127,26 +127,26 @@ namespace HyteraAPI.APIDetails
         {
             if (string.IsNullOrEmpty(newItem))
                 return;
-            Detail.Results.Add(newItem);
+            Detail.results.Add(newItem);
             // 排序  TODO 这个方法有点low啊
-            Detail.Results = new ObservableCollection<string>(Detail.Results.OrderBy(s => s));
+            Detail.results = new ObservableCollection<string>(Detail.results.OrderBy(s => s));
         }
         // 暂时没用
         private void AddAPIItem(TreeNode apiItem)
         {
-            Detail.Items.Add(apiItem);
+            Detail.items.Add(apiItem);
         }
 
         private void AddEmptyDetailItem()
         {
-            Detail.Items.Add(new TreeNode());
+            Detail.items.Add(new TreeNode());
         }
 
         // 修改请求
         public void HttpRevise()
         {
             // TODO 判断Detail的有效性
-            if (Detail.Name == null)
+            if (Detail.name == null)
             {
                 return;
             }
@@ -156,9 +156,9 @@ namespace HyteraAPI.APIDetails
 
         public void DeleteResultItem()
         {
-            if (ResultItemSelectedIndex >= Detail.Results.Count || ResultItemSelectedIndex < 0)
+            if (ResultItemSelectedIndex >= Detail.results.Count || ResultItemSelectedIndex < 0)
                 return;
-            Detail.Results.RemoveAt(ResultItemSelectedIndex);
+            Detail.results.RemoveAt(ResultItemSelectedIndex);
         }
 
         public void DeleteDetailItem()

@@ -63,7 +63,7 @@ namespace HyteraAPI.APIList
             int itmesCount = basicApis.Count;
             for (int i = 0; i < itmesCount; i++)
             {
-                if (basicApis[i].Name == toReviseDetail.Name)
+                if (basicApis[i].name == toReviseDetail.name)
                 {
                     basicApis[i] = toReviseDetail.Clone();
                     break;

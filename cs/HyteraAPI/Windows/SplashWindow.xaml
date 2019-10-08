@@ -7,7 +7,7 @@
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="" Height="300" Width="300">
     <StackPanel Orientation="Vertical">
-        <TextBox Name="PassWordTb" Height="40" Width="200"
+        <TextBox Name="ServerIpTb" Height="40" Width="200"
                    Margin="0,50,0,0"
                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button Content="Welcome to HyteraApi"  Margin="40" Click="Login_Click"/>

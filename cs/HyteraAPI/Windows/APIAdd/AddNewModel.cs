@@ -24,7 +24,7 @@ namespace HyteraAPI.APIAdd
         {
             string jsonData = JsonConvert.SerializeObject(addDetail);
 
-            Http.Post(Consts.HTTP_POST_DETAIL_ADD).Form(new { data = jsonData })
+            Http.Post(Consts.HTTP_POST_DETAIL_ADD).Form(new { apiDetail = jsonData })
                 .OnSuccess(result =>
                 {
                     Console.Write(result);

@@ -61,7 +61,7 @@
                     <TextBox Grid.Row="2"
                              VerticalAlignment="Center" Margin="16,0,16,0"
                              materialDesign:HintAssist.Hint="Cmd Description"
-                             Text="{Binding AddDetail.Description, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding AddDetail.description, UpdateSourceTrigger=PropertyChanged}"
                              Height="28" />
                     <DockPanel Grid.Row="3"
                                Margin="0,4,0,0">
@@ -116,7 +116,7 @@
                                 <materialDesign:PackIcon Kind="Close" Width="24" Height="24" />
                             </Button>
                             <TextBlock Margin="8,0,0,0" VerticalAlignment="Center"
-                                       Text="{Binding AddDetail.Name}"/>
+                                       Text="{Binding AddDetail.name}"/>
                         </DockPanel>
                     </materialDesign:ColorZone>
                     <DockPanel
@@ -130,7 +130,7 @@
 					        Style="{StaticResource MaterialDesignFlatButton}"
                             Click="AddNewApiBt_Click" Width="80" HorizontalAlignment="Right" Content="Save"/>
 
-                        <ListBox ItemsSource="{Binding AddDetail.Items}"/>
+                        <ListBox ItemsSource="{Binding AddDetail.items}"/>
 
                     </DockPanel>
                 </Grid>

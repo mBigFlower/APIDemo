@@ -10,12 +10,12 @@ namespace HyteraAPI.APIDetails
     public class TreeNode : BaseModel
     {
 
-        string introduce;
-        bool isNecessary;
-        string content;
-        string key;
-        int level;
-        string parentName;
+        string _introduce;
+        bool _isNecessary;
+        string _content;
+        string _key;
+        int _level;
+        string _parentName;
 
         #region Construction
         public TreeNode()
@@ -24,96 +24,96 @@ namespace HyteraAPI.APIDetails
         }
         public TreeNode(string key, int level)
         {
-            Key = key;
-            Content = "";
-            Level = level;
+            this.key = key;
+            this.content = "";
+            this.level = level;
         }
         public TreeNode(string key, string content)
         {
-            Key = key;
-            Content = content;
-            Level = 1;
+            this.key = key;
+            this.content = content;
+            level = 1;
         }
         #endregion Construction
 
         #region Getter and Setter
-        public string ParentName
+        public string parentName
         {
             get
             {
-                return parentName;
+                return _parentName;
             }
             set
             {
-                parentName = value;
-                OnRevised("ParentName");
+                _parentName = value;
+                OnRevised("parentName");
             }
         }
 
-        public int Level
+        public int level
         {
             get
             {
-                return level;
+                return _level;
             }
             set
             {
-                level = value;
-                OnRevised("Level");
+                _level = value;
+                OnRevised("level");
             }
         }
 
-        public string Key
+        public string key
         {
             set
             {
-                key = value;
-                OnRevised("Key");
+                _key = value;
+                OnRevised("key");
             }
             get
             {
-                return key;
+                return _key;
             }
         }
 
-        public string Content
+        public string content
         {
             get
             {
-                return content;
+                return _content;
             }
             set
             {
-                content = value;
-                OnRevised("Value");
+                _content = value;
+                OnRevised("content");
             }
         }
 
-        public bool IsNecessary
+        public bool isNecessary
         {
             get
             {
-                return isNecessary;
+                return _isNecessary;
             }
 
             set
             {
-                isNecessary = true;
-                OnRevised("IsNecessary");
+                _isNecessary = true;
+                OnRevised("isNecessary");
             }
         }
 
-        public string Introduce
+        public string introduce
         {
             get
             {
-                return introduce;
+                return _introduce;
             }
 
             set
             {
-                introduce = value;
-                OnRevised("Introduce");
+                _introduce = value;
+                OnRevised("introduce");
             }
         }
         #endregion Getter and Setter
@@ -122,12 +122,12 @@ namespace HyteraAPI.APIDetails
         public TreeNode Clone()
         {
             TreeNode result = new TreeNode();
-            result.Introduce = this.Introduce;
-            result.IsNecessary = this.IsNecessary;
-            result.Content = this.Content;
-            result.Key = this.Key;
-            result.Level = this.Level;
-            result.ParentName = this.ParentName;
+            result.introduce = this.introduce;
+            result.isNecessary = this.isNecessary;
+            result.content = this.content;
+            result.key = this.key;
+            result.level = this.level;
+            result.parentName = this.parentName;
 
             return result;
         }

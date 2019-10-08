@@ -121,7 +121,7 @@ namespace HyteraAPI.APIList
             int length = basicItems.Count;
             for (int i = 0; i < length; i++)
             {
-                if (basicItems[i].Name.Contains(InputSearchText))
+                if (basicItems[i].name.Contains(InputSearchText))
                     this.ShowItems.Add(basicItems[i]);
             }
         }

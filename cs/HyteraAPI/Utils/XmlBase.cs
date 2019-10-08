@@ -104,7 +104,7 @@ namespace HyteraAPI.Utils
                 TreeNode treeNode = new TreeNode(xmlnode.Name, level);
                 if (isAddContent)
                 {
-                    treeNode.Content = xmlnode.InnerText;
+                    treeNode.content = xmlnode.InnerText;
                 }
                 treeNodes.Add(treeNode);
             }
@@ -113,7 +113,7 @@ namespace HyteraAPI.Utils
         private bool IsKeyExist(string key)
         {
             // TODO 这里有个list和observableCollection的转换操作，后期优化一下
-            return treeNodes.ToList().Exists(treeNode => treeNode.Key == key);
+            return treeNodes.ToList().Exists(treeNode => treeNode.key == key);
         }
 
 

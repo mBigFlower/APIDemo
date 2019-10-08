@@ -182,7 +182,9 @@ function reviseApi(revisedApi, response){
 }
 
 function addApi(newApi, response){
+    console.log("addApi newApi:" + newApi);
 	var dataModel = new Api(newApi);
+    console.log("addApi dataModel:" + dataModel);
 
 	dataModel.save(function(err,doc){
   		response(err, doc);
