@@ -10,8 +10,7 @@ var Apis;
 function GetApis(){
 	// 浏览器地址为了好看，使用detail。 但该页中的ajax使用apis，便于理解。 好吧其实是路由的时候便于区分
 	var webUrl = window.location.href;
-	// var apiUrl = webUrl.replace('detail', 'api/all'); 
-	var apiUrl = "http://192.168.2.102:3011/all"; 
+	var apiUrl = webUrl.replace('detail', 'api/all'); 
 	$.get(apiUrl, function(result){
 		Apis = result ; 
 		if(!Apis || Apis.length == 0){
