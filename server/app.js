@@ -75,9 +75,9 @@ app.get('/api/all', function (req, res) {
 })
 
 app.post('/api/add', urlencodedParser, function (req, res) {
-  var api = req.body.apiDetail;
-  
-  mongooseUtil.addApi(api, function (err, message) {
+  var apiStr = req.body.apiDetail;
+  var apiObj = JSON.parse(apiStr);
+  mongooseUtil.addApi(apiObj, function (err, message) {
     if (err){
       console.log(err);
       res.send(err);
@@ -119,11 +119,8 @@ app.post('/login_post', urlencodedParser, function (req, res) {
 })
 
 
-
-
-
 // listen 的时候,加上 0.0.0.0 这样 remoteAddress 收到的是 IPv4
-var server = app.listen(8081, '0.0.0.0', function () {
+var server = app.listen(8089, '0.0.0.0', function () {
  
   var host = server.address().address
   var port = server.address().port
