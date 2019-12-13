@@ -6,6 +6,7 @@ $(document).ready(function(){
 
 // 所有的APi数据
 var Apis;
+var SelectedItem;
 
 function GetApis(){
 	// 浏览器地址为了好看，使用detail。 但该页中的ajax使用apis，便于理解。 好吧其实是路由的时候便于区分
@@ -84,12 +85,12 @@ function InitListSelect(){
 		$(this).addClass('active'); // 添加当前元素的样式
 		
 		var itemId = $(this).attr('id');
-		var selectData = findItemById(itemId);
-		if(selectData == null){
+		SelectedItem = findItemById(itemId);
+		if(SelectedItem == null){
 			NoDataShow();
 		} else {
-			InitBasicParam(selectData);
-			InitItemsParam(selectData);
+			InitBasicParam(SelectedItem);
+			InitItemsParam(SelectedItem);
 		}
 	});
 }
@@ -99,8 +100,10 @@ function InitEditClick(){
 		if(isEditing){
 			// 发送编辑后的
 			HttpReviseApi();
+			isEditing = false;
 		} else {
-    		$(".editable").editable('toggleDisabled');
+			$(".editable").editable('toggleDisabled');
+			isEditing = true;
 		}
 	});
 }
@@ -109,7 +112,12 @@ function InitEditClick(){
 //////////////////////////////////////////////////////
 
 function HttpReviseApi(){
+	var host = window.location.host;
+	var apiUrl = host + "/api/revise";
 
+	$.post(apiUrl, {"apiDetail":SelectedItem}, function(result){
+		
+	});
 }
 
 
