@@ -64,6 +64,7 @@ app.get('/api/one', function (req, res) {
    })
 })
 app.get('/api/all', function (req, res) {
+   console.log('get, /api/all');
    mongooseUtil.findAllApis(function (err, apis) {
     if (err){
       console.log(err);
@@ -75,9 +76,9 @@ app.get('/api/all', function (req, res) {
 })
 
 app.post('/api/add', urlencodedParser, function (req, res) {
-  var apiStr = req.body.apiDetail;
-  var apiObj = JSON.parse(apiStr);
-  mongooseUtil.addApi(apiObj, function (err, message) {
+  var api = Str2Obj(req.body.apiDetail);
+  console.log('post /api/add:\n'+api);
+  mongooseUtil.addApi(api, function (err, message) {
     if (err){
       console.log(err);
       res.send(err);
@@ -92,8 +93,8 @@ app.post('/api/add', urlencodedParser, function (req, res) {
 })
 
 app.post('/api/revise', urlencodedParser, function (req, res) {
-   var api = req.body.apiDetail;
-
+   var api = Str2Obj(req.body.apiDetail);
+   console.log('post /api/revise:\n'+api);
    mongooseUtil.reviseApi(api, function (err, message) {
     if (err){
       console.log(err);
@@ -118,6 +119,15 @@ app.post('/login_post', urlencodedParser, function (req, res) {
    res.end(JSON.stringify(response));
 })
 
+app.post('/feedback/addNewRequest', urlencodedParser, function(req, res){
+   var feedbackContent = req.body.content;
+   console.log("feedbackContent:\r\n"+feedbackContent);
+   // 发邮件给陈大帅
+   email.SendEmail("Receive A New Protocol Request, Please Check It", 
+                  "Hello Dear FlowerFat, \r\n"+feedbackContent);
+
+   res.send("Send Email Over");                
+})
 
 // listen 的时候,加上 0.0.0.0 这样 remoteAddress 收到的是 IPv4
 var server = app.listen(8089, '0.0.0.0', function () {
@@ -129,5 +139,6 @@ var server = app.listen(8089, '0.0.0.0', function () {
  
 })
 
-
-console.log('Server running at http://127.0.0.1:8081/');
+function Str2Obj(str){
+   return JSON.parse(str);
+}

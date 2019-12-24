@@ -29,7 +29,4 @@ function SendEmail(title, content){
     });
 }
 
-
-//SendEmail("Js", "SendEmail");
-
 exports.SendEmail = SendEmail;

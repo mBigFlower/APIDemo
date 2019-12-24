@@ -19,7 +19,7 @@ var ApiSchema = new mongoose.Schema({
     name: String,              
     category: String,                 
     description: String,               
-    updateData: Date,
+    updateDate: Date,
 	items: [ItemSchema]
 });
 
