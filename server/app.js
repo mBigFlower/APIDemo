@@ -93,8 +93,8 @@ app.post('/api/add', urlencodedParser, function (req, res) {
 })
 
 app.post('/api/revise', urlencodedParser, function (req, res) {
+   console.log('post /api/revise:\n'+req.body.apiDetail);
    var api = Str2Obj(req.body.apiDetail);
-   console.log('post /api/revise:\n'+api);
    mongooseUtil.reviseApi(api, function (err, message) {
     if (err){
       console.log(err);
